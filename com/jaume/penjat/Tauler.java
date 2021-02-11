@@ -26,6 +26,7 @@ public class Tauler {
 
     public void setLetra(String letra) {
         this.letra = letra;
+        return letra;
     }
 
     public Integer getVidas() {
@@ -50,6 +51,7 @@ public class Tauler {
 
     public void setIntents(Integer intents) {
         this.intents = intents;
+        this.vidas = intents;
     }
 
     public char[] getParaulaSecreta() {
@@ -58,6 +60,7 @@ public class Tauler {
 
     public void setParaulaSecreta(char[] paraulaSecreta) {
         this.paraulaSecreta = paraulaSecreta;
+        this.palabraEndevinada = new String[paraulaSecreta.length]; //aquí dará null
     }
 
     public String[] getPalabraEndevinada() {
@@ -67,5 +70,34 @@ public class Tauler {
     public void setPalabraEndevinada(String[] palabraEndevinada) {
         this.palabraEndevinada = palabraEndevinada;
     }
+    public void inicialitzarPartida(String paraula, Integer vidas) {
+        char[] parole = paraula.toCharArray();
+        setParaulaSecreta(parole);
+        setIntents(vidas);
+    }
 
+    public String verificar (String letra) {
+        //aquí creamos un string que contiene el set de letra. Este string verifica la longitud. Si es mayor a 1 dará error
+        String letraEnviada = setLetra(letra);
+        if (letraEnviada.length() > 1) {
+            return ("Lletra incorrecte");
+        } else {
+            //exist es un metodo booleano
+            boolean exist = false;
+            for (int j = 0; j < paraulaSecreta.length; j++) {
+/*charAt() es un método de la clase String que retorna el caracter (tipo char) que se encuentra
+ en la posición indicada. El metodo length() de la clase String también, retorna la cantidad total de caracteres contenidos en la cadena. */
+                if (paraulaSecreta[j] == letra.charAt(0)) {
+                    exist = true;
+                    palabraEndevinada[j] = String.valueOf(letra.charAt(0));
+                }
+            }
+//si no existe la letra, restará en el metodo intents
+            if (!exist) {
+                restarIntent();
+            }
+
+        }
+        return "";
+    }
 }
