@@ -68,4 +68,5 @@ public class Tauler {
         this.palabraEndevinada = palabraEndevinada;
     }
 
+
 }
