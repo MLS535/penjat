@@ -107,13 +107,13 @@ public class Tauler {
         for (int i = 0; i < palabraEndevinada.length; i++) {
             //si palabraEndevinada es distinto a null imprimirá la posición 1,2 o la longitud de la palabra que hayamos asignado
             if (!(palabraEndevinada[i] == (null))) {
-                //salida += palabraEndevinada[i];
-                System.out.print(palabraEndevinada[i]);
+                salida += palabraEndevinada[i];
+            //    System.out.print(palabraEndevinada[i]);
 
                 //en caso contrario, imprimirá _
             } else {
-                System.out.print("_");
-                //  salida += "_";
+            //    System.out.print("_");
+                salida += "_";
             }
         }
         //hay que darle una salida a este metodo
