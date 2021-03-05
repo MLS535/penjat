@@ -84,7 +84,7 @@ void comprobarInicioTiempo() throws InterruptedException {
 
 
 @Test
-void comprobarPuntuacion(){
+void comprobarPuntuacionManeraFacil(){
     String paraulaSecreta = this.puntuacio.getParaulaSecretaDificultat(1);
     assertNotEquals( 0, this.puntuacio.calcularPuntuacio(new String[]{paraulaSecreta},0));
 }
@@ -108,9 +108,10 @@ String str = String.join("", palabraEdivinada);
     assertEquals(puntuacio.getParaula(), str);
 }
 
+//Comprueba el valor inicial y el valor final
 @ParameterizedTest
 @ValueSource(ints = {1, 2, 3})
-void comprobarPuntuacion(int difNumber) {
+void comprobarPuntuacionManer(int difNumber) {
     puntuacio.getParaulaSecretaDificultat(difNumber);
     float puntsInicials = puntuacio.calcularPuntuacio(tauler.getPalabraEndevinada(), puntuacio.getIntents());
     float puntsFinals = 1000f;
