@@ -96,7 +96,7 @@ void comprobarPuntuacionMasAlta(){
     assertNotEquals( 0, this.puntuacio.calcularPuntuacio(new String[]{paraulaSecreta},5));
 }
 
-//En este test comprobamos que la palabraEndivinada es igual al setParaula ya que si ponemos getParaula, estará constantemente cambiando.
+//En este test comprobamos que la palabraEndivinada es igual a getParaula. Para ello aplicamos en el set una palabra en concreto
 @Test
 void comprobarLetraParaula(){
     String[] palabraEdivinada={"p","o","r","c"};
@@ -104,7 +104,8 @@ for (int i=0; i < palabraEdivinada.length; i++) {
     if(palabraEdivinada[i] == null) palabraEdivinada[i] = "";
 }
 String str = String.join("", palabraEdivinada);
-    assertEquals(puntuacio.setParaula("porc"), str);
+    puntuacio.setParaula("porc");
+    assertEquals(puntuacio.getParaula(), str);
 }
 
 @ParameterizedTest
