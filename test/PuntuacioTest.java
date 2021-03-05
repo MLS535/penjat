@@ -111,6 +111,7 @@ String str = String.join("", palabraEdivinada);
 @ParameterizedTest
 @ValueSource(ints = {1, 2, 3})
 void comprobarPuntuacion(int difNumber) {
+    puntuacio.getParaulaSecretaDificultat(difNumber);
     float puntsInicials = puntuacio.calcularPuntuacio(tauler.getPalabraEndevinada(), puntuacio.getIntents());
     float puntsFinals = 1000f;
     float puntsPercentatge = 0f;
